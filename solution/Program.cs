@@ -1,22 +1,52 @@
-﻿// РЕШЕНИЕ (с использованием одного массива)
-int size = 0;
+﻿//РЕШЕНИЕ 1 (с использованием двух массивов)
+/*
+int n = 0;
 Console.Write("Сколько элементов Вы хотите ввести? ");
-int.TryParse(Console.ReadLine()!, out size);
-string[] arrayStrings = new string[size];
+int.TryParse(Console.ReadLine()!, out n);
+
+string[] input = new string[n];
+for (int i = 0; i < n; i++)
+{
+    Console.WriteLine($"Введите {i+1}-й элемент: ");
+    string element = Convert.ToString(Console.ReadLine());
+    input[i] = element;
+}
+
+string[] output = new string[n];
 int len = 3;
 int pos = 0;
-for (int i = 0; i < size; i++)
+
+for (int j = 0; j < n; j++)
+{
+    if (input[j].Length <= len)
+    {
+        output[pos] = input[j];
+        pos++;
+    }
+}
+
+Console.WriteLine();
+PrintArray(output);
+*/
+// РЕШЕНИЕ 2 (с использованием одного массива)
+int n = 0;
+Console.Write("Сколько элементов Вы хотите ввести? ");
+int.TryParse(Console.ReadLine()!, out n);
+string[] input = new string[n];
+int len = 3;
+int pos = 0;
+for (int i = 0; i < n; i++)
 {
  Console.WriteLine($"Введите {i+1}-й элемент: ");
  string element = Convert.ToString(Console.ReadLine());
  if (element.Length <= len)
     {
- arrayStrings[pos] = element;
+ input[pos] = element;
  pos++;
     }
 }
 Console.WriteLine();
-PrintArray(arrayStrings);
+PrintArray(input);
 
 
 // _____________Блок вспомогательных методов_____________
