@@ -1,1 +1,32 @@
-﻿
+﻿// РЕШЕНИЕ (с использованием одного массива)
+int size = 0;
+Console.Write("Сколько элементов Вы хотите ввести? ");
+int.TryParse(Console.ReadLine()!, out size);
+string[] arrayStrings = new string[size];
+int len = 3;
+int pos = 0;
+for (int i = 0; i < size; i++)
+{
+ Console.WriteLine($"Введите {i+1}-й элемент: ");
+ string element = Convert.ToString(Console.ReadLine());
+ if (element.Length <= len)
+    {
+ arrayStrings[pos] = element;
+ pos++;
+    }
+}
+Console.WriteLine();
+PrintArray(arrayStrings);
+
+
+// _____________Блок вспомогательных методов_____________
+
+
+void PrintArray(string[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write(array[i] + " ");
+    }
+    Console.WriteLine();
+}
